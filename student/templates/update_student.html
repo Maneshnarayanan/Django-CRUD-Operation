@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Update</title>
+    <style>
+
+            
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            background: #105469;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            height: 450px;
+            width: 300px;
+            background-color: #012b39;
+            color: #fff;
+            display: block;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin-top: 40px;
+            border-radius: 5px;
+            box-shadow: 5px 5px rgb(63, 65, 65);
+        }
+        .student-form {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            width: 100%;
+            height: 30px;
+            border: 0;
+            outline: none;
+            border-radius: 2px;
+        }
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline;
+            padding: 2px 15px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #012b39;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            border-color: black;
+        }
+
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+
+        .btn:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .gender{
+            display: inline-flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container" >
+            <h3>Update Student</h3>
+            <form action="" class="student-form" method="post" autocomplete="off" >
+                {% csrf_token %}
+                <div class="student-name">
+                    <input type="text" name="name" id="" placeholder="Student Name" value="{{x.Name}}"/>
+                </div>
+                <div class="student-class">
+                    <input type="text" name="course"placeholder="Course" value="{{x.Couse}}"/>
+                </div>
+                <div class="gender">
+                    <input type="radio" name="gender" value="male" checked /> Male
+                    <input type="radio" name="gender" value="female" /> Female
+                    <input type="radio" name="gender" value="other" /> Other
+                </div>
+                <div class="dob">
+                    <input type="date" name="dob" id="" placeholder="date of birth" value="{{x.Dob}}" />
+                </div>
+
+                <div class="area">
+                    <input type="text" name="address" placeholder="Address" value="{{x.Address}}"/>
+                </div>
+                <div class="image">
+                    Profile Photo
+                    <input type="file" id="myFile" name="filename" value="{{x.Image}}">
+                </div>
+                <div class="w3-panel"><input type="submit" class="w3-button w3-block w3-teal" value="Update"/></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
